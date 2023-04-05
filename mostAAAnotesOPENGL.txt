@@ -1,0 +1,62 @@
+TO fix flipped skybox images 
+you need to set stbi_set_flip_vertically_on_load(false); that makes it default 
+before loading your shader 
+like this 
+skyBox::skyBox(std::vector<std::string> faceLocations)
+{
+	//shader setup for skybox
+	skyShader = new Shader();
+	
+	stbi_set_flip_vertically_on_load(false); <<<<<<<  
+	
+	skyShader->createFromFiles("Shaders/skyBox.vert", "Shaders/skyBox.frag");
+	uniformProjection = skyShader->GetProjectionLocation();
+	uniformView = skyShader->GetViewLocation();
+
+	//Texture setup for skybox
+	glGenTextures(1, &textureID);
+	glBindTexture(GL_TEXTURE_CUBE_MAP, textureID);
+
+
+https://github.com/michalbb1/opengl4-tutorials-mbsoftworks/blob/dev/common_classes/OpenGLWindow.h COOL TUTORIAL OMG 
+this one https://github.com/michalbb1/opengl4-tutorials-mbsoftworks/blob/dev/common_classes/OpenGLWindow.cpp
+projection matrix line 126
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+this is how you link stuff like boss if LINKER error and stuff happened AIIGHT AIIGHT...
+-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+#pragma comment(lib, "winmm.lib")
+/* link with Windows MultiMedia lib */
+/* To enable automatic SGI OpenGL for Windows library usage for GLUT,
+define GLUT_USE_SGI_OPENGL in your compile preprocessor options. */
+
+#ifdef GLUT_USE_SGI_OPENGL
+    #pragma comment(lib, "opengl.lib") /* link with SGI OpenGL for Windows lib */
+    #pragma comment(lib, "glu.lib") /* link with SGI OpenGL Utility lib */
+    #pragma comment(lib, "glut.lib") /* link with Win32 GLUT for SGI OpenGL lib */
+#endif
+
+#pragma comment(lib, "opengl32.lib") /* link with Microsoft OpenGL lib */
+#pragma comment(lib, "glu32.lib") /* link with Microsoft OpenGL Utility lib */
+#pragma comment(lib, "glut32.lib") /* link with Win32 GLUT lib */
+
+#ifndef GLU32
+#define GLU32
+#endif
+-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+u can for above code use this website down below 
+https://community.khronos.org/t/glut-h-error/72116#if-definedglut_building_lib-definedglut_no_lib_pragma-33
+and tell openAi how to fix it, it will have-a-go AIIGHT...
+-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+use these shortCuts in Visual Studio to become faster...
+1/ Comment Code Block-------> Ctrl+K+C/Ctrl+K+U <------- to unblock
+2/Peek Definition Alt+F12
+3/Navigate Forward/Backward Ctrl+–/Ctrl+Shift+–
+When you have multiple files open at the same time, you might want a way to quickly move back and forth between two or three different locations in your code.
+-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+
