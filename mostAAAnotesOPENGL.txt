@@ -60,9 +60,10 @@ i.e. it should look like this:
 
 #include ....
 #define STB_IMAGE_IMPLEMENTATION    
-#include "stb_image.h"*/
+#include "stb_image.h"*
+in other files just add once this:
+#include "stb_image.h"*
 -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
-
 -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
